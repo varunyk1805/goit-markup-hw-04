@@ -7,9 +7,13 @@
   --header-logo-color: #000000;
   --footer-background-color: #2f303a;
   --footer-contacts-color: rgba(255, 255, 255, 0.6);
+  --footer-social-color: rgba(255, 255, 255, 0.1);
+  --linear-gradient-color: rgba(47, 48, 58, 0.4);
   --second-background-color: #f5f4fa;
   --border-color: #ececec;
   --second-border-color: #eeeeee;
+  --hero-background-color: #c4c4c4;
+  --icon-fill-color: #afb1b8;
 }
 
 body {
@@ -71,8 +75,23 @@ ul {
   color: var(--accent-color);
 }
 
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.icon {
+  fill: currentColor;
+}
+
 /* шапка */
 .header {
+  width: 1600px;
+  margin-right: auto;
+  margin-left: auto;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -83,9 +102,9 @@ ul {
 
 .header-logo {
   display: inline-block;
+  margin-right: 93px;
   padding-top: 25px;
   padding-bottom: 25px;
-  margin-right: 93px;
 
   color: var(--header-logo-color);
 }
@@ -129,6 +148,10 @@ ul {
   letter-spacing: 0.02em;
 }
 
+.header-contact-icon {
+  margin-right: 10px;
+}
+
 .nav-item:not(:first-child),
 .contacts-item:not(:first-child) {
   margin-left: 50px;
@@ -137,16 +160,25 @@ ul {
 .nav-link:hover,
 .nav-link:focus,
 .header-contact:hover,
-.header-contact:focus {
+.header-contact:focus,
+.footer-contact:hover,
+.footer-contact:focus {
   color: var(--accent-color);
 }
 
 /* Подвал */
 .footer {
+  width: 1600px;
+  margin-right: auto;
+  margin-left: auto;
   padding-top: 60px;
   padding-bottom: 60px;
 
   background-color: var(--footer-background-color);
+}
+
+.footer-container {
+  display: flex;
 }
 
 .footer-logo {
@@ -173,12 +205,66 @@ ul {
   color: var(--footer-contacts-color);
 }
 
+.footer-social-box {
+  width: 206px;
+  margin-top: 12px;
+  margin-left: 70px;
+}
+
+.social-title {
+  margin-bottom: 20px;
+
+  color: var(--primary-white-color);
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.footer-social-links {
+  display: flex;
+}
+
+.footer-social-item {
+  width: 44px;
+  height: 44px;
+}
+
+.footer-social-item:not(:first-child) {
+  margin-left: 10px;
+}
+
+.footer-social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  color: var(--primary-white-color);
+  background-color: var(--footer-social-color);
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus {
+  background-color: var(--accent-color);
+}
+
 /* Герой */
 .hero {
+  width: 1600px;
+  height: 600px;
+  margin-right: auto;
+  margin-left: auto;
   padding-top: 200px;
   padding-bottom: 200px;
 
-  background-color: var(--footer-background-color);
+  background-color: var(--hero-background-color);
+  background-image: linear-gradient(var(--linear-gradient-color), var(--linear-gradient-color)),
+    url(../images/index/Img8.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero-container {
@@ -205,6 +291,7 @@ ul {
   margin-top: 30px;
   border-radius: 4px;
   border-color: transparent;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
   background-color: var(--accent-color);
   color: var(--primary-white-color);
@@ -223,14 +310,6 @@ ul {
 }
 
 /* Преимущества */
-.visually-hidden {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-}
-
 .feature-list {
   display: flex;
   flex-wrap: wrap;
@@ -242,6 +321,20 @@ ul {
 
 .feature-item:not(:first-child) {
   margin-left: 30px;
+}
+
+.feature-icon-box {
+  display: flex;
+  width: 270px;
+  height: 120px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+
+  background-color: var(--second-background-color);
+}
+
+.feature-icon {
+  margin: auto;
 }
 
 .feature-title {
@@ -290,6 +383,10 @@ ul {
 
 /* Сотрудники */
 .team {
+  width: 1600px;
+  margin-right: auto;
+  margin-left: auto;
+
   background-color: var(--second-background-color);
 }
 
@@ -311,6 +408,8 @@ ul {
   flex-basis: calc((100% - 90) / 4);
   border-radius: 0px 0px 4px 4px;
   border-color: transparent;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
 
   background-color: var(--primary-white-color);
 }
@@ -335,12 +434,84 @@ ul {
 
 .team-text {
   margin-top: 10px;
+  margin-bottom: 16px;
 
   color: var(--primary-text-color);
   font-size: 16px;
   line-height: 1.19;
   text-align: center;
   letter-spacing: 0.03em;
+}
+
+.team-social-links {
+  display: flex;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-social-item:not(:first-child) {
+  margin-left: 10px;
+}
+
+.team-social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  color: var(--icon-fill-color);
+  background-color: transparent;
+}
+
+.team-social-link:hover,
+.team-social-link:focus {
+  border-radius: 50%;
+
+  color: var(--primary-white-color);
+  background-color: var(--accent-color);
+}
+
+/* Клиенты */
+.customers-title {
+  margin-bottom: 50px;
+
+  color: var(--title-text-color);
+  font-size: 36px;
+  line-height: 1.17;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.customers-list {
+  display: flex;
+  height: 92px;
+  justify-content: center;
+  align-items: center;
+}
+
+.customers-item:not(:first-child) {
+  margin-left: 30px;
+}
+
+.customers-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 170px;
+  height: 92px;
+  border: 1px solid var(--icon-fill-color);
+  border-radius: 4px;
+  color: var(--icon-fill-color);
+}
+
+.customers-link:hover,
+.customers-link:focus {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
 }
 
 /* Кнопки портфолио */
@@ -381,6 +552,9 @@ ul {
 
 .filter-btn:hover,
 .filter-btn:focus {
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+
   background-color: var(--accent-color);
   color: var(--primary-white-color);
 }
@@ -401,6 +575,11 @@ ul {
 
 .projects-item:not(:nth-child(-n + 3)) {
   margin-top: 30px;
+}
+
+.projects-item:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .project-description {
